@@ -1,51 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cv idcv="123">
-	<ident>
-		<nom>DESORBAIX</nom>
-		<pnom>Alexandre</pnom>
-		<datenaiss>1984-08-03</datenaiss>
-		<langues>
-			<langue matern="true" langName="fr"/>
-			<langue lu="true" ecrit="true" parle="true" langName="EN"/>
-		</langues>
-	</ident>
-	<formations>
-		<formation>
-			<anneeDeb>2006</anneeDeb>
-			<anneeFin>2011</anneeFin>
-			<intitule>Ecole privée d'informatique</intitule>
-			<diplomes>
-				<diplome obtenu="true">
-					<intitule>BTS IG</intitule>
-				</diplome>
-				<diplome obtenu="true">
-					<intitule>Licence Pro ass. chef de projet</intitule>
-				</diplome>
-				<diplome obtenu="false">
-					<intitule>Master Chef de projet</intitule>
-				</diplome>
-			</diplomes>
-		</formation>
-		<formation>
-			<anneeDeb>2005</anneeDeb>
-			<anneeFin>2007</anneeFin>
-			<intitule>Fac de versailles</intitule>
-			<diplomes>
-				<diplome obtenu="true">
-					<intitule>DAEU Opt.B</intitule>
-				</diplome>
-			</diplomes>
-		</formation>
-	</formations>
-	<experiences>
-		<experience>
-			<anneeDeb>2009</anneeDeb>
-			<intitule>Formateur Orsys</intitule>
-		</experience>
-		<experience>
-			<anneeDeb>2017</anneeDeb>
-			<anneeFin>2020</anneeFin>
-			<intitule>Dir. R&amp;D ThingsTalk Iot china</intitule>
-		</experience>
-	</experiences>
-</cv>
+<!DOCTYPE cvs SYSTEM "E:\GE-POWER\lsx-2021-10-19\cvdemo.dtd">
+<cvs>
+	<cv idcv="c123">
+		<ident>
+			<nom>DESORBAIX</nom>
+			<pnom>Alexandre</pnom>
+			<pnom>Dominique</pnom>
+			<pnom>Joël</pnom>
+			<datenaiss>1984-08-03</datenaiss>
+			<langues>
+				<langue matern="true" langName="fr"/>
+				<langue lu="true" ecrit="true" parle="true" langName="EN"/>
+			</langues>
+		</ident>
+		<formations>
+			<formation>
+				<anneeDeb>2006</anneeDeb>
+				<anneeFin>2011</anneeFin>
+				<intitule>Ecole privée d'informatique</intitule>
+				<diplomes>
+					<diplome obtenu="true">
+						<intitule>BTS IG</intitule>
+					</diplome>
+					<diplome obtenu="true">
+						<intitule>Licence Pro ass. chef de projet</intitule>
+					</diplome>
+					<diplome obtenu="false">
+						<intitule>Master Chef de projet</intitule>
+					</diplome>
+				</diplomes>
+			</formation>
+			<formation>
+				<anneeDeb>2005</anneeDeb>
+				<anneeFin>2007</anneeFin>
+				<intitule>Fac de versailles</intitule>
+				<diplomes>
+					<diplome obtenu="true">
+						<intitule>DAEU Opt.B</intitule>
+					</diplome>
+				</diplomes>
+			</formation>
+		</formations>
+		<experiences>
+			<experience>
+				<anneeDeb>2009</anneeDeb>
+				<intitule>Formateur Orsys</intitule>
+			</experience>
+			<experience>
+				<anneeDeb>2017</anneeDeb>
+				<anneeFin>2020</anneeFin>
+				<intitule>Dir. R&amp;D ThingsTalk Iot china</intitule>
+			</experience>
+		</experiences>
+	</cv>
+	<cv idcv="c124">
+		<ident>
+			<nom>DESORBAIX</nom>
+			<pnom>Alexandre</pnom>
+			<datenaiss>1984-08-03</datenaiss>
+			<langues>
+				<langue matern="true" langName="fr"/>
+				<langue lu="true" ecrit="true" parle="true" langName="EN"/>
+			</langues>
+		</ident>
+		<formations>
+			<formation>
+				<anneeDeb>2006</anneeDeb>
+				<anneeFin>2011</anneeFin>
+				<intitule>Ecole privée d'informatique</intitule>
+				<diplomes>
+					<diplome obtenu="true">
+						<intitule>BTS IG</intitule>
+					</diplome>
+					<diplome obtenu="true">
+						<intitule>Licence Pro ass. chef de projet</intitule>
+					</diplome>
+					<diplome obtenu="false">
+						<intitule>Master Chef de projet</intitule>
+					</diplome>
+				</diplomes>
+			</formation>
+			<formation>
+				<anneeDeb>2005</anneeDeb>
+				<anneeFin>2007</anneeFin>
+				<intitule>Fac de versailles</intitule>
+				<diplomes>
+					<diplome obtenu="true">
+						<intitule>DAEU Opt.B</intitule>
+					</diplome>
+				</diplomes>
+			</formation>
+		</formations>
+		<experiences>
+			<experience>
+				<anneeDeb>2009</anneeDeb>
+				<intitule>Formateur Orsys</intitule>
+			</experience>
+			<experience>
+				<anneeDeb>2017</anneeDeb>
+				<anneeFin>2020</anneeFin>
+				<intitule>Dir. R&amp;D ThingsTalk Iot china</intitule>
+			</experience>
+		</experiences>
+	</cv>
+</cvs>
