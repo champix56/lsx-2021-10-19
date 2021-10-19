@@ -1,0 +1,79 @@
+/*cvs{
+	color:tomato;
+}*/
+cv, ident, formations, formation,experiences, experience,phraseAccroche, diplomes, diplome, datenaiss{
+	display:block;
+}
+@media print {
+	cv{
+		/*height:28cm;*/
+		page-break-after:always;
+	}
+}
+cv{
+	padding:15mm;
+}
+ident{
+	height:2cm;
+	width:6cm;
+	background-color: skyblue;
+	margin-bottom:5cm;
+}
+langues{
+	height:50px;
+}
+langue:before{
+	height:20px;
+	content:attr(langName);
+	display:block;
+}
+cv>phraseAccorche:hover{
+	box-shadow:15px 15px 25px green;
+}
+phraseAccorche:hover{
+	box-shadow:25px 25px 45px skyblue;
+}
+phraseAccorche{
+	width:70%;
+	border:1px solid black;
+	text-align:center;
+	margin-left:15%;
+	padding:20px 15px;
+}
+formations{
+	margin-top:5cm;
+}
+formations:before{
+	content:'Formations :';
+	font-size:28pt;
+	font-weight:900;
+	text-decoration:underline;
+	margin-bottom:1cm;
+}
+experiences:before{
+	content:'Experiences :';
+	font-size:28pt;
+	font-weight:900;
+	text-decoration:underline;
+	margin-bottom:1cm;
+}
+formation{
+	margin-bottom:2cm;
+	font-size:14pt;
+}
+diplome{
+	margin-left:2cm;
+	font-size:12pt;
+}
+diplome[obtenu="false"]{
+	text-decoration:line-through;
+}
+experience intitule{
+	text-decoration:underline orange;
+}
+experience{
+	font-size:14pt;
+}
+diplome:nth-child(1),diplome:nth-child(3),diplome:nth-child(5){
+	background-color:#ACACACAC;
+}

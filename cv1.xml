@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE cvs SYSTEM "E:\GE-POWER\lsx-2021-10-19\cvdemo.dtd">
-<cvs>
+<?xml-stylesheet href="cv1.css" type="text/css"?>
+<cvs >
 	<cv idcv="c123">
 		<ident>
 			<nom>DESORBAIX</nom>
@@ -13,6 +13,7 @@
 				<langue lu="true" ecrit="true" parle="true" langName="EN"/>
 			</langues>
 		</ident>
+		<phraseAccorche>Je souhaite mettre mes competences a votre disposition</phraseAccorche>
 		<formations>
 			<formation>
 				<anneeDeb>2006</anneeDeb>
