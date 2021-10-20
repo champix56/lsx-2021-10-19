@@ -5,8 +5,8 @@
 		<statFactures>
 			<!--application du templater pour les noeuds //factures selectionnés-->
 			<xsl:apply-templates select="//facture">
-				<xsl:sort select="@type" />				
-				<xsl:sort select="@idclient" />
+				<xsl:sort select="@type"/>
+				<xsl:sort select="@idclient"/>
 			</xsl:apply-templates>
 		</statFactures>
 	</xsl:template>
@@ -17,7 +17,15 @@
 	</xsl:template>
 	<!--definition du model de presenation pour un noeud facture enfnat de factures-->
 	<xsl:template match="facture">
-		<facture type="{@type}">
+		<!--<facture type="{@type}">-->
+		<xsl:element name="{name()}">
+			<xsl:attribute name="type">
+			<!--remplissage conditionnel de la valeur de l'@ttrib-->
+				<xsl:choose>
+					<xsl:when test="@type='devis' or @type='Devis'">Devis</xsl:when>
+					<xsl:otherwise>Facture</xsl:otherwise>
+				</xsl:choose>
+			</xsl:attribute>
 			<xsl:apply-templates select="@datefacture"/>
 			<nbArt>
 				<xsl:value-of select="sum(.//nbUnit)"/>
@@ -28,6 +36,7 @@
 			<avgStotligne>
 				<xsl:value-of select="sum(lignes/ligne/stotligne) div count(lignes/ligne/stotligne)"/>
 			</avgStotligne>
-		</facture>
+		</xsl:element>
+		<!--</facture>-->
 	</xsl:template>
 </xsl:stylesheet>
