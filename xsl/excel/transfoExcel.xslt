@@ -2,7 +2,8 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
 	<xsl:template match="/">
-		<?mso-application progid="Excel.Sheet"?>
+		<xsl:processing-instruction name="mso-application">progid="Excel.Sheet"</xsl:processing-instruction>
+		<!--<? ?>-->
 		<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">
 			<DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
 				<Author>Champix</Author>
@@ -56,13 +57,13 @@
 							<Data ss:Type="String">Nb de factures</Data>
 						</Cell>
 						<Cell ss:StyleID="s73">
-							<Data ss:Type="Number">11111</Data>
+							<Data ss:Type="Number"><xsl:value-of select="count(//facture)"/></Data>
 						</Cell>
 						<Cell ss:MergeAcross="1" ss:StyleID="s63">
 							<Data ss:Type="String">montant total des factures </Data>
 						</Cell>
 						<Cell ss:StyleID="s76">
-							<Data ss:Type="Number">99999.99</Data>
+							<Data ss:Type="Number"><xsl:value-of select="sum(//stotligne)"/></Data>
 						</Cell>
 					</Row>
 					<Row>
