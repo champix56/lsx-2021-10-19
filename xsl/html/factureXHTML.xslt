@@ -100,7 +100,7 @@
 		<div class="facture" id="facture-{@numfacture}">
 			<div class="emeteur">ECO-NOME<br/>10 rue lambada<br/>56000 Vannes</div>
 			<div class="destinataire">Paul Auchon<br/>12 rue lambda<br/>56410 Erdeven</div>
-			<div class="numero-facture">Facture N&deg; XXX</div>
+			<xsl:apply-templates select="@numfacture"/>
 			<table cellspacing="0">
 				<thead>
 					<tr>
@@ -136,5 +136,14 @@
 				</tbody>
 			</table>
 		</div>
+	</xsl:template>
+	<!--
+		template pour le bandeau de numero de facture
+	-->
+	<xsl:template match="@numfacture">
+		<div class="numero-facture"><xsl:choose>
+			<xsl:when test="../@type='Devis' or ../@type='devis'">Devis</xsl:when>
+			<xsl:otherwise>Facture</xsl:otherwise>
+		</xsl:choose> N&deg; XXX</div>
 	</xsl:template>
 </xsl:stylesheet>
