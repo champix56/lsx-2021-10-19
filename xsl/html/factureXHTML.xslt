@@ -78,17 +78,20 @@
 	<xsl:template name="base-sommaire">
 		<h1>Sommaire</h1>
 		<ul>
-			<xsl:apply-templates select="//facture"/>		
+			<xsl:apply-templates select="//facture" mode="sommaire"/>		
 		</ul>
 		<hr/>
 	</xsl:template>
 	<!--
 		template match pour la generation de list item pour le sommaire
 	-->
-	<xsl:template match="facture">
+	<xsl:template match="facture" mode="sommaire">
 		<li>
 			<a href="#facture-{@numfacture}">Facture N&deg;<xsl:value-of select="@numfacture"/></a>
 			pour le client <xsl:value-of select="@idclient"/>
 		</li>
+	</xsl:template>
+	<xsl:template match="facture">
+			Une facture
 	</xsl:template>
 </xsl:stylesheet>
