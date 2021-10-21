@@ -74,7 +74,7 @@
 	<xsl:template name="base-sommaire">
 		<h1>Sommaire</h1>
 		<ul>
-			<!--<li></li>-->
+			<xsl:apply-templates select="//facture"/>		
 		</ul>
 		<hr/>
 	</xsl:template>
