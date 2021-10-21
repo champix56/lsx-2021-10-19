@@ -5,13 +5,10 @@
 ]>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
 	<!--
-		definition minimal du format de nombre
-	-->
-	<xsl:decimal-format name="format_money" decimal-separator="," grouping-separator=" "/>
-	<!--
 		sortie XML pour XHTML(XML+HTML) avec mise place de doctype html (public & system)
 	-->
 	<xsl:output method="xml" version="1.0" encoding="ISO-8859-1" doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" indent="yes"/>
+	<xsl:include href="./template_library.xslt"/>
 	<!--
 		instance de template principal pour noeud de sortie pricinpale
 	-->
@@ -84,27 +81,6 @@
 				<xsl:apply-templates select="//facture"/>
 			</body>
 		</html>
-	</xsl:template>
-	<!--
-		template name pour les statiques du sommaire
-	-->
-	<xsl:template name="base-sommaire">
-		<h1>Sommaire</h1>
-		<ul>
-			<xsl:apply-templates select="//facture" mode="sommaire"/>
-		</ul>
-		<hr/>
-	</xsl:template>
-	<!--
-		template match pour la generation de list item pour le sommaire
-	-->
-	<xsl:template match="facture" mode="sommaire">
-		<li>
-			<a href="#facture-{@numfacture}">
-				<xsl:apply-templates select="@type"/> N&deg;<xsl:value-of select="@numfacture"/>
-			</a>
-			pour le client <xsl:value-of select="@idclient"/>
-		</li>
 	</xsl:template>
 	<!--
 		template match pour la generation de contenu de facture
