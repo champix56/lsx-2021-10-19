@@ -184,6 +184,8 @@
 		<xsl:value-of select="destinataire"/><br/>
 		<xsl:value-of select="adr1"/><br/>
 		<xsl:value-of select="adr2"/><br/>
-		<xsl:value-of select="cp"/>&nbsp;<xsl:value-of select="ville"/>
+		<xsl:value-of select="cp"/>&nbsp;
+		<!--ou equiv. : text non normalisé <xsl:text> </xsl:text>-->
+		<xsl:value-of select="ville"/>
 	</xsl:template>
 </xsl:stylesheet>
