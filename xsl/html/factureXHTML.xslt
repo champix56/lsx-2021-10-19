@@ -88,7 +88,8 @@
 	-->
 	<xsl:template match="facture" mode="sommaire">
 		<li>
-			<a href="#facture-{@numfacture}"><xsl:apply-templates select="@type"/> N&deg;<xsl:value-of select="@numfacture"/>
+			<a href="#facture-{@numfacture}">
+				<xsl:apply-templates select="@type"/> N&deg;<xsl:value-of select="@numfacture"/>
 			</a>
 			pour le client <xsl:value-of select="@idclient"/>
 		</li>
@@ -101,47 +102,15 @@
 			<div class="emeteur">ECO-NOME<br/>10 rue lambada<br/>56000 Vannes</div>
 			<div class="destinataire">Paul Auchon<br/>12 rue lambda<br/>56410 Erdeven</div>
 			<xsl:apply-templates select="@numfacture"/>
-			<table cellspacing="0">
-				<thead>
-					<tr>
-						<th>Ref</th>
-						<th>designation</th>
-						<th>Quant</th>
-						<th>&euro;/unit.</th>
-						<th>sous-total</th>
-					</tr>
-				</thead>
-				<tfoot>
-					<tr>
-						<td colspan="4">Sous-total</td>
-						<th>0.00&euro;</th>
-					</tr>
-					<tr>
-						<td colspan="4">TVA</td>
-						<th>0.00&euro;</th>
-					</tr>
-					<tr>
-						<td colspan="4">Total T.T.C.</td>
-						<th>0.00&euro;</th>
-					</tr>
-				</tfoot>
-				<tbody>
-					<tr>
-						<td class="center">REF-123</td>
-						<td>designation</td>
-						<td class="center">1.0</td>
-						<td class="center">9.95&euro;</td>
-						<th>9.95&euro;</th>
-					</tr>
-				</tbody>
-			</table>
+			<xsl:apply-templates select="lignes"/>
 		</div>
 	</xsl:template>
 	<!--
 		template pour le bandeau de numero de facture
 	-->
 	<xsl:template match="@numfacture">
-		<div class="numero-facture"><xsl:apply-templates select="../@type"/> N&deg; XXX</div>
+		<div class="numero-facture">
+			<xsl:apply-templates select="../@type"/> N&deg; XXX</div>
 	</xsl:template>
 	<!--
 		template pour la definition du text Facture/Devis par @type
@@ -151,5 +120,50 @@
 			<xsl:when test=".='Devis' or .='devis'">Devis</xsl:when>
 			<xsl:otherwise>Facture</xsl:otherwise>
 		</xsl:choose>
+	</xsl:template>
+	<!--
+		template pour generer le corps statique du tableau facture/lignes
+	-->
+	<xsl:template match="lignes">
+		<table cellspacing="0">
+			<thead>
+				<tr>
+					<th>Ref</th>
+					<th>designation</th>
+					<th>Quant</th>
+					<th>&euro;/unit.</th>
+					<th>sous-total</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td colspan="4">Sous-total</td>
+					<th>0.00&euro;</th>
+				</tr>
+				<tr>
+					<td colspan="4">TVA</td>
+					<th>0.00&euro;</th>
+				</tr>
+				<tr>
+					<td colspan="4">Total T.T.C.</td>
+					<th>0.00&euro;</th>
+				</tr>
+			</tfoot>
+			<tbody>
+				<xsl:apply-templates select="ligne"/>
+			</tbody>
+		</table>
+	</xsl:template>
+	<!--
+		template pour chaque ligne de tableau lignes/ligne
+	-->
+	<xsl:template match="ligne">
+		<tr>
+			<td class="center">REF-123</td>
+			<td>designation</td>
+			<td class="center">1.0</td>
+			<td class="center">9.95&euro;</td>
+			<th>9.95&euro;</th>
+		</tr>
 	</xsl:template>
 </xsl:stylesheet>
