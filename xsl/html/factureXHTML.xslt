@@ -2,6 +2,7 @@
 <!DOCTYPE xsl:stylesheet [
 	<!ENTITY deg "&#176;">
 	<!ENTITY euro "&#8364;">
+	<!ENTITY nbsp "&#160;">
 ]>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
 	<!--
@@ -174,5 +175,15 @@
 			<td colspan="4">Total T.T.C.</td>
 			<th><xsl:value-of select="format-number($montantTVA + $montantHT,'0,00', 'format_money')"/> &euro;</th>
 		</tr>
+	</xsl:template>
+	<!--
+		template pour le contenu d'un client provenant d'un parent clients
+	-->
+	<xsl:template match="clients/client">
+		<xsl:value-of select="rs"/><br/>
+		<xsl:value-of select="destinataire"/><br/>
+		<xsl:value-of select="adr1"/><br/>
+		<xsl:value-of select="adr2"/><br/>
+		<xsl:value-of select="cp"/>&nbsp;<xsl:value-of select="ville"/>
 	</xsl:template>
 </xsl:stylesheet>
