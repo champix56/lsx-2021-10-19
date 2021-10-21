@@ -88,7 +88,7 @@
 	-->
 	<xsl:template match="facture" mode="sommaire">
 		<li>
-			<a href="#facture-{@numfacture}">Facture N&deg;<xsl:value-of select="@numfacture"/>
+			<a href="#facture-{@numfacture}"><xsl:apply-templates select="@type"/> N&deg;<xsl:value-of select="@numfacture"/>
 			</a>
 			pour le client <xsl:value-of select="@idclient"/>
 		</li>
@@ -141,9 +141,15 @@
 		template pour le bandeau de numero de facture
 	-->
 	<xsl:template match="@numfacture">
-		<div class="numero-facture"><xsl:choose>
-			<xsl:when test="../@type='Devis' or ../@type='devis'">Devis</xsl:when>
+		<div class="numero-facture"><xsl:apply-templates select="../@type"/> N&deg; XXX</div>
+	</xsl:template>
+	<!--
+		template pour la definition du text Facture/Devis par @type
+	-->
+	<xsl:template match="@type">
+		<xsl:choose>
+			<xsl:when test=".='Devis' or .='devis'">Devis</xsl:when>
 			<xsl:otherwise>Facture</xsl:otherwise>
-		</xsl:choose> N&deg; XXX</div>
+		</xsl:choose>
 	</xsl:template>
 </xsl:stylesheet>
