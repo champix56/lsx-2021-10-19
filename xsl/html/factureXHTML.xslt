@@ -67,9 +67,9 @@
 		</style>
 			</head>
 			<body>
-			<!--corps de ma page-->
-			<xsl:call-template name="base-sommaire"/>
-			<xsl:apply-templates select="//facture"/>
+				<!--corps de ma page-->
+				<xsl:call-template name="base-sommaire"/>
+				<xsl:apply-templates select="//facture"/>
 			</body>
 		</html>
 	</xsl:template>
@@ -79,7 +79,7 @@
 	<xsl:template name="base-sommaire">
 		<h1>Sommaire</h1>
 		<ul>
-			<xsl:apply-templates select="//facture" mode="sommaire"/>		
+			<xsl:apply-templates select="//facture" mode="sommaire"/>
 		</ul>
 		<hr/>
 	</xsl:template>
@@ -88,11 +88,53 @@
 	-->
 	<xsl:template match="facture" mode="sommaire">
 		<li>
-			<a href="#facture-{@numfacture}">Facture N&deg;<xsl:value-of select="@numfacture"/></a>
+			<a href="#facture-{@numfacture}">Facture N&deg;<xsl:value-of select="@numfacture"/>
+			</a>
 			pour le client <xsl:value-of select="@idclient"/>
 		</li>
 	</xsl:template>
+	<!--
+		template match pour la generation de contenu de facture
+	-->
 	<xsl:template match="facture">
-			Une facture
+		<div class="facture" id="facture-XXX">
+			<div class="emeteur">ECO-NOME<br/>10 rue lambada<br/>56000 Vannes</div>
+			<div class="destinataire">Paul Auchon<br/>12 rue lambda<br/>56410 Erdeven</div>
+			<div class="numero-facture">Facture N&deg; XXX</div>
+			<table cellspacing="0">
+				<thead>
+					<tr>
+						<th>Ref</th>
+						<th>designation</th>
+						<th>Quant</th>
+						<th>&euro;/unit.</th>
+						<th>sous-total</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<td colspan="4">Sous-total</td>
+						<th>0.00&euro;</th>
+					</tr>
+					<tr>
+						<td colspan="4">TVA</td>
+						<th>0.00&euro;</th>
+					</tr>
+					<tr>
+						<td colspan="4">Total T.T.C.</td>
+						<th>0.00&euro;</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td class="center">REF-123</td>
+						<td>designation</td>
+						<td class="center">1.0</td>
+						<td class="center">9.95&euro;</td>
+						<th>9.95&euro;</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</xsl:template>
 </xsl:stylesheet>
