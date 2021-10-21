@@ -97,7 +97,7 @@
 		template match pour la generation de contenu de facture
 	-->
 	<xsl:template match="facture">
-		<div class="facture" id="facture-XXX">
+		<div class="facture" id="facture-{@numfacture}">
 			<div class="emeteur">ECO-NOME<br/>10 rue lambada<br/>56000 Vannes</div>
 			<div class="destinataire">Paul Auchon<br/>12 rue lambda<br/>56410 Erdeven</div>
 			<div class="numero-facture">Facture N&deg; XXX</div>
