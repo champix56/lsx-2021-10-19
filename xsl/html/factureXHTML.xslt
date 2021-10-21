@@ -69,6 +69,7 @@
 			<body>
 			<!--corps de ma page-->
 			<xsl:call-template name="base-sommaire"/>
+			<xsl:apply-templates select="//facture"/>
 			</body>
 		</html>
 	</xsl:template>
