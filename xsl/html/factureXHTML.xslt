@@ -181,7 +181,7 @@
 		<tr>
 			<td colspan="4">Sous-total</td>
 			<th>
-				<xsl:value-of select="sum($baseNode//stotligne)"/>&euro;</th>
+				<xsl:value-of select="format-number(sum($baseNode//stotligne),'0,00', 'format_money')"/> &euro;</th>
 		</tr>
 		<tr>
 			<td colspan="4">TVA</td>
