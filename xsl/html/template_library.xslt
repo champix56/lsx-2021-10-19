@@ -32,5 +32,13 @@
 			pour le client <xsl:value-of select="@idclient"/>
 		</li>
 	</xsl:template>
-	
+	<!--
+		template pour la definition du text Facture/Devis par @type
+	-->
+	<xsl:template match="@type">
+		<xsl:choose>
+			<xsl:when test=".='Devis' or .='devis'">Devis</xsl:when>
+			<xsl:otherwise>Facture</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>	
 </xsl:stylesheet>

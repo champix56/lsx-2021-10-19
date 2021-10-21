@@ -8,6 +8,7 @@
 		sortie XML pour XHTML(XML+HTML) avec mise place de doctype html (public & system)
 	-->
 	<xsl:output method="xml" version="1.0" encoding="ISO-8859-1" doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" indent="yes"/>
+	<!--inclusion de la libray de templates-->
 	<xsl:include href="./template_library.xslt"/>
 	<!--
 		instance de template principal pour noeud de sortie pricinpale
@@ -100,15 +101,6 @@
 		<div class="numero-facture">
 			<xsl:apply-templates select="../@type"/> N&deg; <xsl:value-of select="."/>
 		</div>
-	</xsl:template>
-	<!--
-		template pour la definition du text Facture/Devis par @type
-	-->
-	<xsl:template match="@type">
-		<xsl:choose>
-			<xsl:when test=".='Devis' or .='devis'">Devis</xsl:when>
-			<xsl:otherwise>Facture</xsl:otherwise>
-		</xsl:choose>
 	</xsl:template>
 	<!--
 		template pour generer le corps statique du tableau facture/lignes
