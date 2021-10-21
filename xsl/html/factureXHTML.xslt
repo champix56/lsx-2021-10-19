@@ -78,4 +78,13 @@
 		</ul>
 		<hr/>
 	</xsl:template>
+	<!--
+		template match pour la generation de list item pour le sommaire
+	-->
+	<xsl:template match="facture">
+		<li>
+			<a href="#facture-{@numfacture}">Facture N <xsl:value-of select="@numfacture"/></a>
+			pour le client <xsl:value-of select="@idclient"/>
+		</li>
+	</xsl:template>
 </xsl:stylesheet>
