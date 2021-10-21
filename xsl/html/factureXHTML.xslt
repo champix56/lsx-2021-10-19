@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE xsl:stylesheet [
+	<!ENTITY deg "&#176;">
+	<!ENTITY euro "&#8364;">
+]>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
 	<!--
 		sortie XML pour XHTML(XML+HTML) avec mise place de doctype html (public & system)
@@ -83,7 +87,7 @@
 	-->
 	<xsl:template match="facture">
 		<li>
-			<a href="#facture-{@numfacture}">Facture N <xsl:value-of select="@numfacture"/></a>
+			<a href="#facture-{@numfacture}">Facture N&deg;<xsl:value-of select="@numfacture"/></a>
 			pour le client <xsl:value-of select="@idclient"/>
 		</li>
 	</xsl:template>
