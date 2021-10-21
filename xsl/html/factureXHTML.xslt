@@ -67,9 +67,14 @@
 		</style>
 			</head>
 			<body>
-			<table>
-				<xsl:call-template name="total"/>
-			</table>
+				<!--
+					utilisation du total avec liste de noeuds specifique en param
+					<table>
+						<xsl:call-template name="total">
+							<xsl:with-param name="baseNode" select="//facture[@idclient=234]"/>
+						</xsl:call-template>
+					</table>
+				-->
 				<!--corps de ma page-->
 				<xsl:call-template name="base-sommaire"/>
 				<xsl:apply-templates select="//facture"/>
@@ -168,9 +173,11 @@
 		</tr>
 	</xsl:template>
 	<xsl:template name="total">
+		<xsl:param name="baseNode" select="."/>
 		<tr>
 			<td colspan="4">Sous-total</td>
-			<th><xsl:value-of select="sum(.//stotligne)"/>&euro;</th>
+			<th>
+				<xsl:value-of select="sum($baseNode//stotligne)"/>&euro;</th>
 		</tr>
 		<tr>
 			<td colspan="4">TVA</td>
