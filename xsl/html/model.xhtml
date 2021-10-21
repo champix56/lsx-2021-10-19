@@ -7,9 +7,39 @@
 			.facture{
 				page-break-before:always;
 				min-height:27cm;
-				width:100%;
+				width:21cm;
+				border:1px solid black;
 			}
-			
+			.emeteur,.destinataire{
+				border:1px solid black;
+				height:18mm;
+				padding:1cm;
+				width:80mm;
+				font-size:16pt;
+			}
+			.destinataire{
+				margin-left:100mm;
+				margin-top:15mm;
+				
+			}
+			.numero-facture{
+				width:70%;
+				margin-left:15%;
+				margin-bottom:15mm;
+				margin-top:15mm;
+				padding: 2mm 0;
+				text-align:center;
+				border:1px solid black;
+				background-color:#DADADA;
+				font-size:16pt;
+			}
+			table{
+				width:80%;
+				margin-left:10%;
+			}
+			thead{
+				background-color:#EDEDED;
+			}
 		</style>
 	</head>
 	<body>
@@ -22,7 +52,7 @@
 			<div class="emeteur">ECO-NOME<br/>10 rue lambada<br/>56000 Vannes</div>
 			<div class="destinataire">Paul Auchon<br/>12 rue lambda<br/>56410 Erdeven</div>
 			<div class="numero-facture">Facture N� XXX</div>
-			<table> 
+			<table border="1"> 
 				<thead>
 					<tr>
 						<th>Ref</th>
