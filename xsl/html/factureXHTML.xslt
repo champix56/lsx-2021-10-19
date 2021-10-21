@@ -195,12 +195,12 @@
 		<tr>
 			<td colspan="4">TVA</td>
 			<th>
-				<xsl:value-of select="format-number($montantTVA,'0,00', 'format_money')"/>&euro;
+				<xsl:value-of select="format-number($montantTVA,'0,00', 'format_money')"/> &euro;
 			</th>
 		</tr>
 		<tr>
 			<td colspan="4">Total T.T.C.</td>
-			<th><xsl:value-of select="format-number($montantTVA + $montantHT,'0,00', 'format_money')"/>&euro;</th>
+			<th><xsl:value-of select="format-number($montantTVA + $montantHT,'0,00', 'format_money')"/> &euro;</th>
 		</tr>
 	</xsl:template>
 </xsl:stylesheet>
