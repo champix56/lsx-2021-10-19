@@ -94,7 +94,7 @@
 	<xsl:template match="facture">
 		<div class="facture" id="facture-{@numfacture}">
 			<div class="emeteur">ECO-NOME<br/>10 rue lambada<br/>56000 Vannes</div>
-			<div class="destinataire">Paul Auchon<br/>12 rue lambda<br/>56410 Erdeven</div>
+			<xsl:apply-templates select="@idclient"/>
 			<xsl:apply-templates select="@numfacture"/>
 			<xsl:apply-templates select="lignes"/>
 		</div>
@@ -175,6 +175,15 @@
 			<td colspan="4">Total T.T.C.</td>
 			<th><xsl:value-of select="format-number($montantTVA + $montantHT,'0,00', 'format_money')"/> &euro;</th>
 		</tr>
+	</xsl:template>
+	<!--
+		template pour l'id client et la creation de la corelation du clients.xml
+	-->
+	<xsl:template match="facture/@idclient">
+		<div class="destinataire" style="height:auto;padding-top:0;padding-bottom:0;">
+		<xsl:variable name="idclient" select="."/>
+			<xsl:apply-templates select="$docClient/client[@id= $idclient ]"/>
+		</div>
 	</xsl:template>
 	<!--
 		template pour le contenu d'un client provenant d'un parent clients
