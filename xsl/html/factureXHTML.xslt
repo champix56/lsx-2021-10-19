@@ -12,10 +12,6 @@
 	<!--inclusion de la libray de templates-->
 	<xsl:include href="./template_library.xslt"/>
 	<!--
-		variable (constante) du document client.xml pour obtenir un arbre XML secondaire pour correlation entre les fichiers et reunification (synthese) des deux documents
-	-->
-	<xsl:variable name="docClient" select="document('../../XPATH/facture/clients.xml')/clients"/>
-	<!--
 		instance de template principal pour noeud de sortie pricinpale
 	-->
 	<xsl:template match="/">
@@ -181,8 +177,8 @@
 	-->
 	<xsl:template match="facture/@idclient">
 		<div class="destinataire" style="height:auto;padding-top:0;padding-bottom:0;">
-		<xsl:variable name="idclient" select="."/>
-			<xsl:apply-templates select="$docClient/client[@id= $idclient ]"/>
+			<xsl:variable name="idclient" select="."/>
+			<xsl:apply-templates select="document('../../XPATH/facture/clients.xml')/client[@id= $idclient ]"/>
 		</div>
 	</xsl:template>
 	<!--
