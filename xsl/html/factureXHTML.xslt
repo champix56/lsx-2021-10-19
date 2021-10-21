@@ -185,10 +185,10 @@
 		template pour le contenu d'un client provenant d'un parent clients
 	-->
 	<xsl:template match="clients/client">
-		<xsl:value-of select="rs"/><br/>
+		<xsl:if test="rs"><xsl:value-of select="rs"/><br/></xsl:if>
 		<xsl:value-of select="destinataire"/><br/>
 		<xsl:value-of select="adr1"/><br/>
-		<xsl:value-of select="adr2"/><br/>
+		<xsl:if test="string-length(adr2) > 0"><xsl:value-of select="adr2"/><br/></xsl:if>
 		<xsl:value-of select="cp"/>&nbsp;
 		<!--ou equiv. : text non normalisé <xsl:text> </xsl:text>-->
 		<xsl:value-of select="ville"/>
