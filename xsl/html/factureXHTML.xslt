@@ -6,7 +6,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
 	<!--
 		definition minimal du format de nombre
-	-->	
+	-->
 	<xsl:decimal-format name="format_money" decimal-separator="," grouping-separator=" "/>
 	<!--
 		sortie XML pour XHTML(XML+HTML) avec mise place de doctype html (public & system)
@@ -176,20 +176,31 @@
 				<xsl:value-of select="stotligne"/>&euro;</th>
 		</tr>
 	</xsl:template>
+	<!--
+		template de generation du contenu de total pour un tableau
+			@params baseNode situation de context de noeuds pour les calcul de totaux
+	-->
 	<xsl:template name="total">
 		<xsl:param name="baseNode" select="."/>
+		<xsl:param name="tva_pourcent" select="20"/>
+		<!--variables (constantes) pour precalcul arrondi des valeurs à sommer-->
+		<xsl:variable name="montantHT" select="round(sum($baseNode//stotligne) * 100) div 100"/>
+		<xsl:variable name="montantTVA" select="round($montantHT * ($tva_pourcent div 100) * 100) div 100"/>
 		<tr>
 			<td colspan="4">Sous-total</td>
 			<th>
-				<xsl:value-of select="format-number(sum($baseNode//stotligne),'0,00', 'format_money')"/> &euro;</th>
+				<xsl:value-of select="format-number($montantHT,'0,00', 'format_money')"/> &euro;
+			</th>
 		</tr>
 		<tr>
 			<td colspan="4">TVA</td>
-			<th>0.00&euro;</th>
+			<th>
+				<xsl:value-of select="format-number($montantTVA,'0,00', 'format_money')"/>&euro;
+			</th>
 		</tr>
 		<tr>
 			<td colspan="4">Total T.T.C.</td>
-			<th>0.00&euro;</th>
+			<th><xsl:value-of select="format-number($montantTVA + $montantHT,'0,00', 'format_money')"/>&euro;</th>
 		</tr>
 	</xsl:template>
 </xsl:stylesheet>
