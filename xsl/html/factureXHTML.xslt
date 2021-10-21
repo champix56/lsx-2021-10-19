@@ -159,11 +159,11 @@
 	-->
 	<xsl:template match="ligne">
 		<tr>
-			<td class="center">REF-123</td>
-			<td>designation</td>
-			<td class="center">1.0</td>
-			<td class="center">9.95&euro;</td>
-			<th>9.95&euro;</th>
+			<td class="center"><xsl:value-of select="ref"/></td>
+			<td><xsl:value-of select="designation"/></td>
+			<td class="center"><xsl:value-of select="nbUnit"/></td>
+			<td class="center"><xsl:value-of select="phtByUnit"/>&euro;</td>
+			<th><xsl:value-of select="stotligne"/>&euro;</th>
 		</tr>
 	</xsl:template>
 </xsl:stylesheet>
