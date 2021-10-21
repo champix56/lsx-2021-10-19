@@ -4,6 +4,9 @@
 	<!ENTITY euro "&#8364;">
 ]>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
+	<!--
+		definition minimal du format de nombre
+	-->	
 	<xsl:decimal-format name="format_money" decimal-separator="," grouping-separator=" "/>
 	<!--
 		sortie XML pour XHTML(XML+HTML) avec mise place de doctype html (public & system)
