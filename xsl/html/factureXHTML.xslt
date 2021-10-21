@@ -178,7 +178,7 @@
 	<xsl:template match="facture/@idclient">
 		<div class="destinataire" style="height:auto;padding-top:0;padding-bottom:0;">
 			<xsl:variable name="idclient" select="."/>
-			<xsl:apply-templates select="document('../../XPATH/facture/clients.xml')/client[@id= $idclient ]"/>
+			<xsl:apply-templates select="document('../../XPATH/facture/clients.xml')/clients/client[@id= $idclient ]"/>
 		</div>
 	</xsl:template>
 	<!--
