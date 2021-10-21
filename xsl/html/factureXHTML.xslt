@@ -85,11 +85,25 @@
 		</html>
 	</xsl:template>
 	<!--
+		template pour la gen du boc de l'emeteur des factures
+	-->
+	<xsl:template match="@rsets">
+		<div class="emeteur">
+			<div></div>
+			<div>
+				<xsl:value-of select="."/><br/>
+				<xsl:value-of select="../@adr1ets"/><br/>
+				<xsl:if test="string-length(../@adr2ets)>0"><xsl:value-of select="../@adr2ets"/><br/></xsl:if>
+				<xsl:value-of select="../@cpets"/>&nbsp;<xsl:value-of select="../@villets"/><br/>
+			</div>
+		</div>
+	</xsl:template>
+	<!--
 		template match pour la generation de contenu de facture
 	-->
 	<xsl:template match="facture">
 		<div class="facture" id="facture-{@numfacture}">
-			<div class="emeteur">ECO-NOME<br/>10 rue lambada<br/>56000 Vannes</div>
+			<xsl:apply-templates select="/factures/@rsets"/>
 			<xsl:apply-templates select="@idclient"/>
 			<xsl:apply-templates select="@numfacture"/>
 			<xsl:apply-templates select="lignes"/>
