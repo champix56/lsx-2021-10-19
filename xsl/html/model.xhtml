@@ -1,21 +1,27 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 	<head>
 		<title>Enter your title here</title>
 		<style type="text/css">
+			.facture{
+				page-break-before:always;
+				min-height:27cm;
+				width:100%;
+			}
 			
 		</style>
 	</head>
 	<body>
 		<h1>Sommaire</h1>
 		<ul>
-			<li><a href="#facture-XXX">Facture N° XX</a> pour NomDuclient</li>
+			<li><a href="#facture-XXX">Facture Nï¿½ XX</a> pour NomDuclient</li>
 		</ul>
 		<hr class="end-toc"/>
 		<div class="facture" id="facture-XXX">
 			<div class="emeteur">ECO-NOME<br/>10 rue lambada<br/>56000 Vannes</div>
 			<div class="destinataire">Paul Auchon<br/>12 rue lambda<br/>56410 Erdeven</div>
-			<div class="numero-facture">Facture N° XXX</div>
+			<div class="numero-facture">Facture Nï¿½ XXX</div>
 			<table> 
 				<thead>
 					<tr>
@@ -26,6 +32,11 @@
 						<th>sous-total</th>
 					</tr>
 				</thead>
+				<tfoot>
+					<tr><td colspan="4">Sous-total</td><th>0.00&euro;</th></tr>
+					<tr><td colspan="4">TVA</td><th>0.00&euro;</th></tr>
+					<tr><td colspan="4">Total T.T.C.</td><th>0.00&euro;</th></tr>
+				</tfoot>
 				<tbody>
 					<tr>
 						<td>REF-123</td>
@@ -35,11 +46,7 @@
 						<th>9.95&euro;</th>	
 					</tr>
 				</tbody>
-				<tfoot>
-					<tr><td colspan="4">Sous-total</td><th>0.00&euro;</th></tr>
-					<tr><td colspan="4">TVA</td><th>0.00&euro;</th></tr>
-					<tr><td colspan="4">Total T.T.C.</td><th>0.00&euro;</th></tr>
-				</tfoot>
+				
 			</table>
 		</div>	
 
