@@ -67,6 +67,9 @@
 		</style>
 			</head>
 			<body>
+			<table>
+				<xsl:call-template name="total"/>
+			</table>
 				<!--corps de ma page-->
 				<xsl:call-template name="base-sommaire"/>
 				<xsl:apply-templates select="//facture"/>
@@ -110,7 +113,8 @@
 	-->
 	<xsl:template match="@numfacture">
 		<div class="numero-facture">
-			<xsl:apply-templates select="../@type"/> N&deg; XXX</div>
+			<xsl:apply-templates select="../@type"/> N&deg; <xsl:value-of select="."/>
+		</div>
 	</xsl:template>
 	<!--
 		template pour la definition du text Facture/Devis par @type
@@ -136,18 +140,7 @@
 				</tr>
 			</thead>
 			<tfoot>
-				<tr>
-					<td colspan="4">Sous-total</td>
-					<th>0.00&euro;</th>
-				</tr>
-				<tr>
-					<td colspan="4">TVA</td>
-					<th>0.00&euro;</th>
-				</tr>
-				<tr>
-					<td colspan="4">Total T.T.C.</td>
-					<th>0.00&euro;</th>
-				</tr>
+				<xsl:call-template name="total"/>
 			</tfoot>
 			<tbody>
 				<xsl:apply-templates select="ligne"/>
@@ -159,11 +152,33 @@
 	-->
 	<xsl:template match="ligne">
 		<tr>
-			<td class="center"><xsl:value-of select="ref"/></td>
-			<td><xsl:value-of select="designation"/></td>
-			<td class="center"><xsl:value-of select="nbUnit"/></td>
-			<td class="center"><xsl:value-of select="phtByUnit"/>&euro;</td>
-			<th><xsl:value-of select="stotligne"/>&euro;</th>
+			<td class="center">
+				<xsl:value-of select="ref"/>
+			</td>
+			<td>
+				<xsl:value-of select="designation"/>
+			</td>
+			<td class="center">
+				<xsl:value-of select="nbUnit"/>
+			</td>
+			<td class="center">
+				<xsl:value-of select="phtByUnit"/>&euro;</td>
+			<th>
+				<xsl:value-of select="stotligne"/>&euro;</th>
+		</tr>
+	</xsl:template>
+	<xsl:template name="total">
+		<tr>
+			<td colspan="4">Sous-total</td>
+			<th><xsl:value-of select="sum(.//stotligne)"/>&euro;</th>
+		</tr>
+		<tr>
+			<td colspan="4">TVA</td>
+			<th>0.00&euro;</th>
+		</tr>
+		<tr>
+			<td colspan="4">Total T.T.C.</td>
+			<th>0.00&euro;</th>
 		</tr>
 	</xsl:template>
 </xsl:stylesheet>
