@@ -67,4 +67,14 @@
 			</body>
 		</html>
 	</xsl:template>
+	<!--
+		template name pour les statiques du sommaire
+	-->
+	<xsl:template name="base-sommaire">
+		<h1>Sommaire</h1>
+		<ul>
+			<!--<li></li>-->
+		</ul>
+		<hr/>
+	</xsl:template>
 </xsl:stylesheet>
