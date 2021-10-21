@@ -64,6 +64,7 @@
 			</head>
 			<body>
 			<!--corps de ma page-->
+			<xsl:call-template name="base-sommaire"/>
 			</body>
 		</html>
 	</xsl:template>
