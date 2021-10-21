@@ -30,16 +30,28 @@
 				padding: 2mm 0;
 				text-align:center;
 				border:1px solid black;
-				background-color:#DADADA;
+				background-color:#8DADEF;
 				font-size:16pt;
 			}
 			table{
 				width:80%;
 				margin-left:10%;
+			 
+			}
+			thead *,tbody *{
+				border: 1px solid black;
 			}
 			thead{
-				background-color:#EDEDED;
+				background-color:#8DADEF;
 			}
+			tfoot td{
+				text-align:right;
+				font-style:italic;
+			}
+			tfoot *{
+				border:none;
+			}
+			.center{text-align:center;}
 		</style>
 	</head>
 	<body>
@@ -52,7 +64,7 @@
 			<div class="emeteur">ECO-NOME<br/>10 rue lambada<br/>56000 Vannes</div>
 			<div class="destinataire">Paul Auchon<br/>12 rue lambda<br/>56410 Erdeven</div>
 			<div class="numero-facture">Facture N� XXX</div>
-			<table border="1"> 
+			<table cellspacing="0"> 
 				<thead>
 					<tr>
 						<th>Ref</th>
@@ -69,10 +81,10 @@
 				</tfoot>
 				<tbody>
 					<tr>
-						<td>REF-123</td>
+						<td class="center">REF-123</td>
 						<td>designation</td>
-						<td>1.0</td>
-						<td>9.95&euro;</td>
+						<td class="center">1.0</td>
+						<td class="center">9.95&euro;</td>
 						<th>9.95&euro;</th>	
 					</tr>
 				</tbody>
