@@ -44,7 +44,7 @@
 							<xsl:for-each select="/factures/facture">
 							<!--une puce de la liste-->
 								<fo:list-item>
-									<fo:list-item-label>
+									<fo:list-item-label color="blue">
 										<fo:block>+</fo:block>
 									</fo:list-item-label>
 									<!--contenu de la puce-->
