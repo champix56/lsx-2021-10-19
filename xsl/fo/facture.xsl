@@ -65,7 +65,8 @@
 								</fo:list-item>
 							</xsl:for-each>
 						</fo:list-block>
-						<fo:block>
+						<fo:block>Graphique des ventes</fo:block>
+						<fo:block text-align="center">
 							<fo:instream-foreign-object content-height="7cm" content-width="7cm" scaling="uniform">
 								<svg width="100%" height="100%" viewBox="-20 -20 140 140" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 									<desc/>
@@ -95,7 +96,20 @@
 											<stop offset="80%" stop-color="#677E52"/>
 										</linearGradient>
 									</defs>
-									<rect x="15" y="-0.000000000000014210854715202004" width="20" height="100.00000000000001" fill="url(#effetArrondiVertical)"/>
+									<xsl:variable name="max" select="150"/>
+									<xsl:for-each select="$stat/factures/facture">
+									<!--
+x: position horizontal basé sur la position de la balise dans le parent * largeur du rect + decalge de 7 constant
+y: position vertical -> 100 (position max) - height calculé 
+height: pas -> (100 div max )	multiplier par la valeur du noeud									 
+									-->
+									<xsl:variable name="height" select="(100 div $max) * ."/>
+										<rect x="{((position()-1) * 20) + 6}" 
+											y="{100 - $height}" 
+											width="20" 
+											height="{$height}" 
+											fill="url(#effetArrondiVertical)"/>
+									</xsl:for-each>
 									<use xlink:href="#Axes" x="-15" y="0"/>
 								</svg>
 							</fo:instream-foreign-object>
