@@ -6,9 +6,9 @@
 			<fo:layout-master-set>
 				<!--un format simple de page-->
 				<fo:simple-page-master master-name="A4-portrait" page-height="297mm" page-width="210mm">
-					<fo:region-body background-color="skyblue" margin-top="2cm" margin-bottom="1cm"/>
-					<fo:region-before extent="2cm" background-color="tomato"/>
-					<fo:region-after extent="1cm" background-color="yellow"/>
+					<fo:region-body margin-top="2cm" margin-bottom="1cm"/>
+					<fo:region-before extent="2cm"/>
+					<fo:region-after extent="1cm"/>
 				</fo:simple-page-master>
 				<!--un format simple de page-->
 				<fo:simple-page-master master-name="A4-portrait-garde" page-height="297mm" page-width="210mm">
@@ -63,32 +63,65 @@
 	</xsl:template>
 	<xsl:template match="facture">
 		<fo:page-sequence master-reference="A4-portrait">
-		<fo:static-content flow-name="xsl-region-before">
-			<fo:block text-align="center">
-				<fo:table width="12cm" margin-left="4cm">
-					<fo:table-body>
+			<fo:static-content flow-name="xsl-region-before">
+				<fo:block text-align="center">
+					<fo:table width="12cm" margin-left="4cm">
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell width="2cm">
+									<fo:block>
+										<fo:external-graphic src="../../XPATH/facture/{/factures/@logourl}" scaling="uniform" content-height="15mm" content-width="15mm"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell width="10cm">
+									<fo:block>
+										<xsl:value-of select="/factures/@rsets"/>
+										<fo:block/>
+										<xsl:value-of select="/factures/@adr1ets"/>
+										<fo:block/>
+										<xsl:value-of select="/factures/@cpets"/>
+										<xsl:text> </xsl:text>
+										<xsl:value-of select="/factures/@villeets"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+				</fo:block>
+			</fo:static-content>
+			<fo:flow flow-name="xsl-region-body">
+				<fo:block>
+					<fo:block margin-top="3cm" border="0.3mm solid black" text-align="center" margin-right="2.6cm" margin-left="2.6cm" background-color="skyblue" font-size="23pt" padding="0 0.5mm">Facture N° <xsl:value-of select="@numfacture"/>
+					</fo:block>
+				</fo:block>
+				<fo:table margin-top="1.5cm" margin-left="2cm" margin-right="2cm">
+					<fo:table-header>
 						<fo:table-row>
 							<fo:table-cell width="2cm">
-								<fo:block><fo:external-graphic src="../../XPATH/facture/{/factures/@logourl}" scaling="uniform" content-height="15mm" content-width="15mm"/></fo:block>
+								<fo:block>ref</fo:block>
 							</fo:table-cell>
-							<fo:table-cell width="10cm">
-								<fo:block>
-									<xsl:value-of select="/factures/@rsets"/>
-									<fo:block/>
-									<xsl:value-of select="/factures/@adr1ets"/>
-									<fo:block/>
-									<xsl:value-of select="/factures/@cpets"/><xsl:text> </xsl:text><xsl:value-of select="/factures/@villeets"/>
-								</fo:block>
+							<fo:table-cell>
+								<fo:block>designation</fo:block>
+							</fo:table-cell>
+							<fo:table-cell width="3cm">
+								<fo:block>€ / unit.</fo:block>
+							</fo:table-cell>
+							<fo:table-cell width="2cm">
+								<fo:block>quant</fo:block>
+							</fo:table-cell>
+							<fo:table-cell width="3cm">
+								<fo:block>sous-total</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-header>
+					<fo:table-body>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block/>
 							</fo:table-cell>
 						</fo:table-row>
 					</fo:table-body>
 				</fo:table>
-			</fo:block>
-		</fo:static-content>
-			<fo:flow flow-name="xsl-region-body">
-				<fo:block>
-					<fo:block margin-top="3cm" border="0.3mm solid black" text-align="center" width="80%" margin-left="5%" background-color="skyblue" padding="0 0.5mm">Facture N° <xsl:value-of select="@numfacture"/></fo:block>
-				</fo:block>
 			</fo:flow>
 		</fo:page-sequence>
 	</xsl:template>
