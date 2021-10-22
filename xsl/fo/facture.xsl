@@ -95,7 +95,7 @@
 					</fo:block>
 				</fo:block>
 				<fo:table margin-top="1.5cm">
-					<fo:table-header>
+					<fo:table-header background-color="skyblue">
 						<fo:table-row>
 							<fo:table-cell border="0.3mm solid black">
 								<fo:block>ref</fo:block>
@@ -106,7 +106,7 @@
 							<fo:table-cell border="0.3mm solid black">
 								<fo:block>€ / unit.</fo:block>
 							</fo:table-cell>
-							<fo:table-cell border="0.3mm solid black">
+							<fo:table-cell border="0.3mm solid black" width="5cm">
 								<fo:block>quant</fo:block>
 							</fo:table-cell>
 							<fo:table-cell border="0.3mm solid black">
@@ -114,6 +114,16 @@
 							</fo:table-cell>
 						</fo:table-row>
 					</fo:table-header>
+					<fo:table-footer>
+						<fo:table-row>
+							<fo:table-cell number-columns-spanned="4" text-align="right">
+								<fo:block>Montant Total H.T.</fo:block>
+							</fo:table-cell>
+							<fo:table-cell>
+								<fo:block><xsl:value-of select="sum(.//stotligne)"/></fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-footer>
 					<fo:table-body>
 						<xsl:for-each select=".//ligne">
 							<fo:table-row >
