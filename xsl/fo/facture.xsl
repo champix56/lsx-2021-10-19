@@ -33,10 +33,27 @@
 									<xsl:value-of select="/factures/@dateeditionXML"/>
 								</fo:inline>
 							</fo:block>
-							<fo:block>pour l'ets : <fo:inline font-weight="900"><xsl:value-of select="/factures/@rsets"/></fo:inline>
+							<fo:block>pour l'ets : <fo:inline font-weight="900">
+									<xsl:value-of select="/factures/@rsets"/>
+								</fo:inline>
 							</fo:block>
 						</fo:block>
 						<fo:block margin-top="2cm" text-align="center" color="skyblue" font-size="32pt" text-decoration="underline" font-weight="bold">Sommaire</fo:block>
+						<!--creation d'une liste de puces-->						
+						<fo:list-block>
+							<xsl:for-each select="/factures/facture">
+							<!--une puce de la liste-->
+								<fo:list-item>
+									<fo:list-item-label>
+										<fo:block>+</fo:block>
+									</fo:list-item-label>
+									<!--contenu de la puce-->
+									<fo:list-item-body>
+										<fo:block>Facture n° <xsl:value-of select="@numfacture"/></fo:block>
+									</fo:list-item-body>
+								</fo:list-item>
+							</xsl:for-each>
+						</fo:list-block>
 					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
