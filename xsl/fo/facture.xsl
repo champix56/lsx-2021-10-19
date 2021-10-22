@@ -29,11 +29,14 @@
 					<fo:block>
 						<fo:block margin-top="5cm" text-align="center" color="tomato" font-size="32pt" text-decoration="underline" font-weight="bold">FACTURES</fo:block>
 						<fo:block margin-left="4cm" margin-top="1cm">
-							<fo:block>Facturier en date du :<xsl:value-of select="/factures/@dateeditionXML"/>
+							<fo:block>Facturier en date du : <fo:inline text-decoration="underline">
+									<xsl:value-of select="/factures/@dateeditionXML"/>
+								</fo:inline>
 							</fo:block>
-							<fo:block>pour l'ets : <xsl:value-of select="/factures/@rsets"/>
+							<fo:block>pour l'ets : <fo:inline font-weight="900"><xsl:value-of select="/factures/@rsets"/></fo:inline>
 							</fo:block>
 						</fo:block>
+						<fo:block margin-top="2cm" text-align="center" color="skyblue" font-size="32pt" text-decoration="underline" font-weight="bold">Sommaire</fo:block>
 					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
