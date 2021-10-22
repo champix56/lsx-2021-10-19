@@ -5,11 +5,13 @@
 	<!ENTITY nbsp "&#160;">
 ]>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
+	<xsl:param name="logo">data:image/jpeg;base64,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</xsl:param>
 	<!--
 		sortie XML pour XHTML(XML+HTML) avec mise place de doctype html (public & system)
 	-->
 	<xsl:output method="xml" version="1.0" encoding="ISO-8859-1" doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" indent="yes"/>
 	<!--inclusion de la libray de templates-->
+	<!--<xsl:include href="./ressourceImage.xslt"/>-->
 	<xsl:include href="./template_library.xslt"/>
 	<!--
 		instance de template principal pour noeud de sortie pricinpale
@@ -31,6 +33,7 @@
 			.emeteur img{
 				width:2cm;
 				height:2cm;
+				vertical-align:middle;
 			}
 			.emeteur,.destinataire{
 				border:1px solid black;
@@ -97,7 +100,7 @@
 	<xsl:template match="@rsets">
 		<div class="emeteur">
 			<div>
-				<img alt="logo" src="{../@logourl}"/>
+				<img alt="logo" src="{$logo}"/>
 			</div>
 			<div>
 				<xsl:value-of select="."/><br/>
