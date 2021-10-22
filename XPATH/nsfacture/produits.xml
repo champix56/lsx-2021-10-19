@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<produits p:dateVersionStock="2021-10-01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:orsys:produits produits.xsd" xmlns="urn:orsys:produits" xmlns:p="urn:orsys:produits">
+	<produit id="p001">
+		<ref>REF-345</ref>
+		<designation>BA 13 </designation>
+		<phUnit>23.45</phUnit>
+		<stock>2</stock>
+	</produit>
+	<produit id="p002">
+		<ref>REF-378</ref>
+		<designation>Peinture 1kg blanc</designation>
+		<phUnit>18.45</phUnit>
+		<stock>1</stock>
+	</produit>
+</produits>

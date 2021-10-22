@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="urn:orsys:factures" xmlns="urn:orsys:factures" xmlns:p="urn:orsys:produits">
+	<xs:include schemaLocation="standardsTypes.xsd"/>
+	<xs:import namespace="urn:orsys:produits" schemaLocation="produits.xsd"/>
+	<xs:element name="factures">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="facture" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="dategen" type="xs:dateTime"/>
+			<xs:attribute ref="p:dateVersionStock" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="facture" type="CT_facture">
+	</xs:element>
+	<xs:complexType name="CT_facture">
+		<xs:sequence>
+			<xs:element name="lines">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="line" type="CT_line" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="idclient" type="xs:string" use="required"/>
+		<xs:attribute name="numerofacture" type="xs:ID" use="required"/>
+		<xs:attribute name="datefacture" type="xs:date" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="CT_line">
+		<xs:sequence>
+			<xs:element name="produit" type="p:CT_base_produit"/>
+			<xs:element name="quant" type="xs:short"/>
+			<xs:element name="stotligne" type="money_type"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

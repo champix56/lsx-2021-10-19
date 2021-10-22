@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<factures xmlns="urn:orsys:factures" xmlns:p="urn:orsys:produits" p:dateVersionStock="1957-08-13" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:orsys:factures factures.xsd">
+	<facture idclient="132" numerofacture="F-001" datefacture="1957-08-13">
+		<lines>
+			<line>
+				<produit >
+					<p:ref>REF-0</p:ref>
+					<p:designation>String</p:designation>
+					<p:phUnit>0</p:phUnit>
+				</produit>
+				<quant>4096</quant>
+				<stotligne>0.32</stotligne>
+			</line>
+			<line>
+				<produit>
+					<p:ref>REF-1</p:ref>
+					<p:designation>String</p:designation>
+					<p:phUnit>0</p:phUnit>
+				</produit>
+				<quant>4096</quant>
+				<stotligne>0.32</stotligne>
+			</line>
+		</lines>
+	</facture>
+	<facture idclient="234" numerofacture="F-002" datefacture="2021-10-10">
+		<lines>
+			<line>
+				<produit>
+					<p:ref>REF-0</p:ref>
+					<p:designation>String</p:designation>
+					<p:phUnit>0</p:phUnit>
+				</produit>
+				<quant>4096</quant>
+				<stotligne>0.32</stotligne>
+			</line>
+			<line>
+				<produit >
+					<p:ref>REF-1</p:ref>
+					<p:designation>String</p:designation>
+					<p:phUnit>0</p:phUnit>
+				</produit>
+				<quant>4096</quant>
+				<stotligne>0.32</stotligne>
+			</line>
+		</lines>
+	</facture>
+</factures>

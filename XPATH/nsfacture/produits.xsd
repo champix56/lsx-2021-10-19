@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 rel. 2 sp1 (x64) (http://www.altova.com) by champix (none) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:orsys:produits" targetNamespace="urn:orsys:produits" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="standardsTypes.xsd"/>
+	<xs:element name="produits">
+		<xs:annotation>
+			<xs:documentation>Liste des produits</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="produit" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute ref="dateVersionStock"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="produit" type="CT_stock_produit">
+		<xs:annotation>
+			<xs:documentation>Element assemblé pour 1 produit</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="CT_base_produit">
+		<xs:sequence>
+			<xs:element name="ref">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="REF-[0-9]{1,}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="designation" type="xs:string"/>
+			<xs:element name="phUnit" type="money_type"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:ID" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="CT_stock_produit">
+		<xs:complexContent>
+			<xs:extension base="CT_base_produit">
+				<xs:sequence>
+					<xs:element name="stock" type="xs:short"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:attribute name="dateVersionStock" type="xs:date"/>
+</xs:schema>
