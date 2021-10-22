@@ -65,15 +65,19 @@
 		<fo:page-sequence master-reference="A4-portrait">
 		<fo:static-content flow-name="xsl-region-before">
 			<fo:block text-align="center">
-				<fo:table>
+				<fo:table width="12cm" margin-left="4cm">
 					<fo:table-body>
 						<fo:table-row>
-							<fo:table-cell>
+							<fo:table-cell width="2cm">
 								<fo:block><fo:external-graphic src="../../XPATH/facture/{/factures/@logourl}" scaling="uniform" content-height="15mm" content-width="15mm"/></fo:block>
 							</fo:table-cell>
-							<fo:table-cell>
+							<fo:table-cell width="10cm">
 								<fo:block>
 									<xsl:value-of select="/factures/@rsets"/>
+									<fo:block/>
+									<xsl:value-of select="/factures/@adr1ets"/>
+									<fo:block/>
+									<xsl:value-of select="/factures/@cpets"/><xsl:text> </xsl:text><xsl:value-of select="/factures/@villeets"/>
 								</fo:block>
 							</fo:table-cell>
 						</fo:table-row>
