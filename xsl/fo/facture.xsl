@@ -27,7 +27,7 @@
 				<!--le nom des region est par def. xsl-region-[nom de la region]-->
 				<fo:flow flow-name="xsl-region-body">
 					<fo:block>
-						<fo:block margin-top="5cm" text-align="center" color="tomato" font-size="25pt" text-decoration="underline" font-weight="900">FACTURES</fo:block>
+						<fo:block margin-top="5cm" text-align="center" color="tomato" font-size="32pt" text-decoration="underline" font-weight="bold">FACTURES</fo:block>
 						<fo:block margin-left="4cm" margin-top="1cm">
 							<fo:block>Facturier en date du :<xsl:value-of select="/factures/@dateeditionXML"/>
 							</fo:block>
