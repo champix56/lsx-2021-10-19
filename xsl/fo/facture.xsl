@@ -83,12 +83,12 @@
 						</fo:table-row>
 					</fo:table-body>
 				</fo:table>
-				
-				
 			</fo:block>
 		</fo:static-content>
 			<fo:flow flow-name="xsl-region-body">
-				<fo:block>une facture</fo:block>
+				<fo:block>
+					<fo:block margin-top="3cm" border="0.3mm solid black" text-align="center" width="80%" margin-left="5%" background-color="skyblue" padding="0 0.5mm">Facture N° <xsl:value-of select="@numfacture"/></fo:block>
+				</fo:block>
 			</fo:flow>
 		</fo:page-sequence>
 	</xsl:template>
