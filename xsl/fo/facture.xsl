@@ -6,7 +6,7 @@
 			<fo:layout-master-set>
 			<!--un format simple de page-->
 				<fo:simple-page-master master-name="A4-portrait" page-height="297mm" page-width="210mm">
-					<fo:region-body background-color="skyblue"></fo:region-body>
+					<fo:region-body background-color="skyblue" margin-top="2cm" margin-bottom="1cm"/>
 					<fo:region-before extent="2cm" background-color="tomato"/>					
 					<fo:region-after extent="1cm" background-color="yellow"/>
 				</fo:simple-page-master>
@@ -17,7 +17,7 @@
 					<fo:block><fo:page-number/></fo:block>
 				</fo:static-content>
 				<fo:static-content flow-name="xsl-region-before">
-					<fo:block text-align="center"><xsl:value-of select="/factures/@rsets"/></fo:block>
+					<fo:block><xsl:value-of select="/factures/@rsets"/></fo:block>
 				</fo:static-content>
 				<!--contenu principale de la section de pages generer-->
 				<!--le nom des region est par def. xsl-region-[nom de la region]-->
