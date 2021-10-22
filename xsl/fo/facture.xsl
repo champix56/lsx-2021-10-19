@@ -40,7 +40,7 @@
 						</fo:block>
 						<fo:block margin-top="2cm" text-align="center" color="skyblue" font-size="32pt" text-decoration="underline" font-weight="bold">Sommaire</fo:block>
 						<!--creation d'une liste de puces-->						
-						<fo:list-block>
+						<fo:list-block margin-left="5cm">
 							<xsl:for-each select="/factures/facture">
 							<!--une puce de la liste-->
 								<fo:list-item>
@@ -48,7 +48,7 @@
 										<fo:block>+</fo:block>
 									</fo:list-item-label>
 									<!--contenu de la puce-->
-									<fo:list-item-body>
+									<fo:list-item-body margin-left="0.3cm">
 										<fo:block>Facture n° <xsl:value-of select="@numfacture"/></fo:block>
 									</fo:list-item-body>
 								</fo:list-item>
