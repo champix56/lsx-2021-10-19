@@ -39,17 +39,18 @@
 							</fo:block>
 						</fo:block>
 						<fo:block margin-top="2cm" text-align="center" color="skyblue" font-size="32pt" text-decoration="underline" font-weight="bold">Sommaire</fo:block>
-						<!--creation d'une liste de puces-->						
+						<!--creation d'une liste de puces-->
 						<fo:list-block margin-left="5cm">
 							<xsl:for-each select="/factures/facture">
-							<!--une puce de la liste-->
+								<!--une puce de la liste-->
 								<fo:list-item>
 									<fo:list-item-label color="blue">
 										<fo:block>+</fo:block>
 									</fo:list-item-label>
 									<!--contenu de la puce-->
 									<fo:list-item-body margin-left="0.3cm">
-										<fo:block>Facture n° <xsl:value-of select="@numfacture"/></fo:block>
+										<fo:block>Facture n° <xsl:value-of select="@numfacture"/>
+										</fo:block>
 									</fo:list-item-body>
 								</fo:list-item>
 							</xsl:for-each>
@@ -57,6 +58,14 @@
 					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
+			<xsl:apply-templates select="//facture"/>
 		</fo:root>
+	</xsl:template>
+	<xsl:template match="facture">
+		<fo:page-sequence master-reference="A4-portrait">
+			<fo:flow flow-name="xsl-region-body">
+				<fo:block>une facture</fo:block>
+			</fo:flow>
+		</fo:page-sequence>
 	</xsl:template>
 </xsl:stylesheet>
