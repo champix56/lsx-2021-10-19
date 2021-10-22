@@ -63,6 +63,26 @@
 	</xsl:template>
 	<xsl:template match="facture">
 		<fo:page-sequence master-reference="A4-portrait">
+		<fo:static-content flow-name="xsl-region-before">
+			<fo:block text-align="center">
+				<fo:table>
+					<fo:table-body>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block><fo:external-graphic src="../../XPATH/facture/{/factures/@logourl}" scaling="uniform" content-height="15mm" content-width="15mm"/></fo:block>
+							</fo:table-cell>
+							<fo:table-cell>
+								<fo:block>
+									<xsl:value-of select="/factures/@rsets"/>
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-body>
+				</fo:table>
+				
+				
+			</fo:block>
+		</fo:static-content>
 			<fo:flow flow-name="xsl-region-body">
 				<fo:block>une facture</fo:block>
 			</fo:flow>
