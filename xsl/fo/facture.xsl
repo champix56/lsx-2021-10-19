@@ -94,32 +94,56 @@
 					<fo:block margin-top="3cm" border="0.3mm solid black" text-align="center" margin-right="2.6cm" margin-left="2.6cm" background-color="skyblue" font-size="23pt" padding="0 0.5mm">Facture N° <xsl:value-of select="@numfacture"/>
 					</fo:block>
 				</fo:block>
-				<fo:table margin-top="1.5cm" margin-left="2cm" margin-right="2cm">
+				<fo:table margin-top="1.5cm">
 					<fo:table-header>
 						<fo:table-row>
-							<fo:table-cell width="2cm">
+							<fo:table-cell border="0.3mm solid black">
 								<fo:block>ref</fo:block>
 							</fo:table-cell>
-							<fo:table-cell>
+							<fo:table-cell width="7cm" border="0.3mm solid black">
 								<fo:block>designation</fo:block>
 							</fo:table-cell>
-							<fo:table-cell width="3cm">
+							<fo:table-cell border="0.3mm solid black">
 								<fo:block>€ / unit.</fo:block>
 							</fo:table-cell>
-							<fo:table-cell width="2cm">
+							<fo:table-cell border="0.3mm solid black">
 								<fo:block>quant</fo:block>
 							</fo:table-cell>
-							<fo:table-cell width="3cm">
+							<fo:table-cell border="0.3mm solid black">
 								<fo:block>sous-total</fo:block>
 							</fo:table-cell>
 						</fo:table-row>
 					</fo:table-header>
 					<fo:table-body>
-						<fo:table-row>
-							<fo:table-cell>
-								<fo:block/>
-							</fo:table-cell>
-						</fo:table-row>
+						<xsl:for-each select=".//ligne">
+							<fo:table-row >
+								<fo:table-cell border="0.3mm solid black">
+									<fo:block>
+										<xsl:value-of select="ref"/>
+									</fo:block>
+								</fo:table-cell >
+								<fo:table-cell border="0.3mm solid black">
+									<fo:block>
+										<xsl:value-of select="designation"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="0.3mm solid black">
+									<fo:block>
+										<xsl:value-of select="phtByUnit"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="0.3mm solid black">
+									<fo:block>
+										<xsl:value-of select="nbUnit"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="0.3mm solid black">
+									<fo:block>
+										<xsl:value-of select="stotligne"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</xsl:for-each>
 					</fo:table-body>
 				</fo:table>
 			</fo:flow>
