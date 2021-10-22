@@ -25,6 +25,13 @@
 				width:21cm;
 				border:1px solid black;
 			}
+			.emeteur>div{
+				display:inline-block;
+			}
+			.emeteur img{
+				width:2cm;
+				height:2cm;
+			}
 			.emeteur,.destinataire{
 				border:1px solid black;
 				height:18mm;
@@ -89,7 +96,9 @@
 	-->
 	<xsl:template match="@rsets">
 		<div class="emeteur">
-			<div></div>
+			<div>
+				<img alt="logo" src="{../@logourl}"/>
+			</div>
 			<div>
 				<xsl:value-of select="."/><br/>
 				<xsl:value-of select="../@adr1ets"/><br/>
