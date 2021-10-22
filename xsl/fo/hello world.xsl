@@ -15,7 +15,7 @@
 				<!--le nom des region est par def. xsl-region-[nom de la region]-->
 				<fo:flow flow-name="xsl-region-body">
 					<fo:block>
-						DEMAT &amp; DEGEMER MAT im Breizh
+						<fo:block text-align="center" font-style="italic" text-decoration="underline">DEMAT &amp; DEGEMER MAT im Breizh</fo:block>
 					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
